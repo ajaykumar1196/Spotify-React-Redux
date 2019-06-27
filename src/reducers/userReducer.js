@@ -2,8 +2,7 @@ import * as userConstants from '../constants/actionConstants';
 
 const initalState = {
   isFetching: false,
-  user: null,
-  error: ""
+  user: null
 }
 
 export const userReducer = (state = initalState, action) => {
@@ -17,11 +16,6 @@ export const userReducer = (state = initalState, action) => {
       return {
         ...state,
         user: action.payload
-      }
-    case userConstants.FETCH_USER_FAILURE:
-      return {
-        ...state,
-        error: action.payload
       }
     default:
       return state
