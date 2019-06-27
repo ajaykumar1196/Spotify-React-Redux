@@ -12,7 +12,6 @@ const authHeader = () => {
   }
 }
 
-
 export const spotify = () => {
   let handleResponse = axios.defaults.transformResponse.push(function (data, headers) {
     if (data.error && data.error.status === 401) {

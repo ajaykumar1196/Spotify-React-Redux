@@ -1,11 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from "react-router-dom";
 
-
-function App() {
-  return (
-    <div className="App">
-      Spotify Clone</div>
-  );
+import ConditionalRoute from './components/ConditionalRoute/ConditionalRoute'
+class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <ConditionalRoute />
+      </BrowserRouter>
+    )
+  }
 }
 
-export default App;
+export default (App);
