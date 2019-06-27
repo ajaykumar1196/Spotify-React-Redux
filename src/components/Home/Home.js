@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
-import Logout from '../Logout/Logout'
-class Home extends React.Component {
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps.match.url === this.props.match.url;
-  }
+import Logout from '../Logout/Logout';
+
+class Home extends React.Component {
 
   render() {
     return (
