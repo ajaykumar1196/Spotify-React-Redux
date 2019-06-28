@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 
 import { fetchUser } from "../../actions/userActions";
 
+import * as RouteConstant from '../../constants/routeConstants'
+
+import Sidebar from '../Sidebar/Sidebar';
 import Logout from '../Logout/Logout';
 
 class Home extends React.Component {
@@ -16,15 +19,22 @@ class Home extends React.Component {
   render() {
 
     if (this.props.isFetching || !this.props.userProfile) {
-      console.log(this.props)
       return <h1>Loading...</h1>
     }
     return (
-      <div id="app">
-        {this.props.userProfile.email}
-        <div>
+      <div className="home">
+        <Sidebar />
+        <div className="main-section">
           <Switch>
-            <Route path='/logout' component={Logout} />
+            <Route path={RouteConstant.HOME} />
+            <Route path={RouteConstant.RECENTLY_PLAYED} />
+            <Route path={RouteConstant.} />
+            <Route path={RouteConstant} />
+            <Route path={RouteConstant} />
+            <Route path={RouteConstant} />
+            <Route path={RouteConstant} />
+            <Route path={RouteConstant} />
+            <Route path={RouteConstant.Logout} />
           </Switch>
         </div>
       </div>
