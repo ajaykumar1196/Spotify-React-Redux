@@ -27,13 +27,17 @@ class Home extends React.Component {
         <div className="main-section">
           <Switch>
             <Route path={RouteConstant.HOME} />
-            <Route path={RouteConstant.RECENTLY_PLAYED} />
-            <Route path={RouteConstant.} />
-            <Route path={RouteConstant} />
-            <Route path={RouteConstant} />
-            <Route path={RouteConstant} />
-            <Route path={RouteConstant} />
-            <Route path={RouteConstant} />
+            <Route path={RouteConstant.CATEGORIES} />
+            <Route path={RouteConstant.FEATURED_PLAYLIST} />
+            <Route path={RouteConstant.DISCOVER} />
+            <Route path={RouteConstant.ALBUM} />
+            <Route path={RouteConstant.ARTIST} />
+            <Route path={RouteConstant.PLAYLIST} />
+            <Route path={RouteConstant.USER_RECENTLY_PLAYED} />
+            <Route path={RouteConstant.USER_PLAYLIST} />
+            <Route path={RouteConstant.USER_ARTISTS} />
+            <Route path={RouteConstant.USER_ALBUMS} />
+            <Route path={RouteConstant.USER_ALBUMS} />
             <Route path={RouteConstant.Logout} />
           </Switch>
         </div>
