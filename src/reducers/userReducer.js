@@ -2,10 +2,10 @@ import * as userConstants from '../constants/actionConstants';
 
 const initalState = {
   isFetching: false,
-  user: null
+  userProfile: null
 }
 
-export const userReducer = (state = initalState, action) => {
+export default (state = initalState, action) => {
   switch (action.type) {
     case userConstants.FETCH_USER_PENDING:
       return {
@@ -15,7 +15,8 @@ export const userReducer = (state = initalState, action) => {
     case userConstants.FETCH_USER_SUCCESS:
       return {
         ...state,
-        user: action.payload
+        userProfile: action.payload,
+        isFetching: false
       }
     default:
       return state

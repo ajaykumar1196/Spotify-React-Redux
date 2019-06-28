@@ -22,6 +22,6 @@ export const spotify = () => {
   });
 
   return axios.create({
-    authHeader, handleResponse
+    headers: authHeader(), handleResponse
   })
 }

@@ -7,10 +7,10 @@ export const fetchUserPending = () => {
   }
 }
 
-export const fetchUserSuccess = user => {
+export const fetchUserSuccess = userProfile => {
   return {
     type: userConstants.FETCH_USER_SUCCESS,
-    payload: user
+    payload: userProfile
   }
 }
 
