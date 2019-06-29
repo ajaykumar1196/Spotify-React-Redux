@@ -1,2 +1,14 @@
 export const FETCH_USER_PENDING = "FETCH_USER_PENDING";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
+
+export const PLAY_SONG = "PLAY_SONG";
+export const PLAY_NEXT_SONG = "PLAY_NEXT_SONG";
+export const PLAY_PREVIOUS_SONG = "PLAY_PREVIOUS_SONG";
+export const ON_LOAD_START = "ON_LOAD_START";
+export const ON_LOADED_META_DATA = "ON_LOADED_META_DATA";
+export const ON_PAUSE = "ON_PAUSE";
+export const ON_PLAY = "ON_PLAY";
+export const ON_TIME_UPDATE = "ON_TIME_UPDATE";
+export const ON_VOLUME_CHANGE = "ON_VOLUME_CHANGE";
+export const TOGGLE_SHUFFLE = "TOGGLE_SHUFFLE";
+export const TOGGLE_REPEAT = "TOGGLE_REPEAT";
