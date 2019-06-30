@@ -8,7 +8,7 @@ const initalState = {
   repeat: false,
   shuffle: false,
   volume: 1,
-  playingID: null
+  songID: null
 };
 
 export default (state = initalState, action) => {
@@ -16,7 +16,7 @@ export default (state = initalState, action) => {
     case playerConstants.PLAY_SONG:
       return {
         ...state,
-        playingID: payload
+        songID: action.payload
       };
     case playerConstants.ON_LOAD_START:
       return {
@@ -60,5 +60,8 @@ export default (state = initalState, action) => {
         ...state,
         shuffle: !state.shuffle
       };
+
+    default:
+      return state;
   }
 };

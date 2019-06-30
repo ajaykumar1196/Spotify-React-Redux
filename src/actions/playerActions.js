@@ -9,9 +9,9 @@ export const onLoadStart = () => ({
   type: playerConstants.ON_LOAD_START
 });
 
-export const playSong = playingID => ({
+export const playSong = songID => ({
   type: playerConstants.PLAY_SONG,
-  payload: playingID
+  payload: songID
 });
 
 export const onPause = () => ({
@@ -33,4 +33,12 @@ export const onVolumeChange = (volume, muted) => ({
     volume,
     muted
   }
+});
+
+export const toggleRepeat = () => ({
+  type: playerConstants.TOGGLE_REPEAT
+});
+
+export const toggleShuffle = () => ({
+  type: playerConstants.TOGGLE_SHUFFLE
 });
