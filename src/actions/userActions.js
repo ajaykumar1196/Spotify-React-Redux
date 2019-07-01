@@ -14,8 +14,11 @@ const fetchUserSuccess = userProfile => {
   };
 };
 
-export const fetchUser = () => async dispatch => {
+export const fetchUser = () => dispatch => {
   dispatch(fetchUserPending());
-  const res = await spotify().get(process.env.REACT_APP_BASE_URL + "/me");
-  return dispatch(fetchUserSuccess(res.data));
+  return spotify()
+    .get(process.env.REACT_APP_BASE_URL + "/me")
+    .then(res => {
+      dispatch(fetchUserSuccess(res.data));
+    });
 };
