@@ -1,0 +1,25 @@
+.mediaContainer {
+  padding: 0 32px;
+  margin: 0 auto;
+  max-width: 1480px;
+}
+
+.mediaContainer-heading {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  color: #333333;
+  text-transform: none;
+  margin: 24px 0;
+}
+
+.mediaContainer-content {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.mediaContainer-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
