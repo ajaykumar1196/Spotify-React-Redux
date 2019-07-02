@@ -9,9 +9,9 @@ export const onLoadStart = () => ({
   type: playerConstants.ON_LOAD_START
 });
 
-export const playSong = songID => ({
+export const playSong = (trackURL, trackID) => ({
   type: playerConstants.PLAY_SONG,
-  payload: songID
+  payload: { trackURL, trackID }
 });
 
 export const onPause = () => ({

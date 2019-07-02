@@ -1,8 +1,8 @@
-a {
+.Root__now-playing-bar a {
   text-decoration: none;
   color: inherit;
 }
-a:hover {
+.Root__now-playing-bar a:hover {
   text-decoration: underline;
 }
 

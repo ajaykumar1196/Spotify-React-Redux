@@ -64,3 +64,35 @@ export const fetchCategories = () => dispatch => {
       dispatch(fetchCategoriesFailure(err));
     });
 };
+
+const fetchFeaturedPlaylistsPending = () => {
+  return {
+    type: browseConstants.FETCH_FEATURED_PLAYLISTS_PENDING
+  };
+};
+
+const fetchFeaturedPlaylistsFailure = err => {
+  return {
+    type: browseConstants.FETCH_FEATURED_PLAYLISTS_FAILURE,
+    payload: err
+  };
+};
+
+const fetchFeaturedPlaylistsSuccess = featuredPlaylists => {
+  return {
+    type: browseConstants.FETCH_FEATURED_PLAYLISTS_SUCCESS,
+    payload: featuredPlaylists
+  };
+};
+
+export const fetchFeaturedPlaylists = () => dispatch => {
+  dispatch(fetchFeaturedPlaylistsPending());
+  return spotify()
+    .get(process.env.REACT_APP_BASE_URL + "/browse/featured-playlists")
+    .then(res => {
+      dispatch(fetchFeaturedPlaylistsSuccess(res.data));
+    })
+    .catch(err => {
+      dispatch(fetchFeaturedPlaylistsFailure(err));
+    });
+};

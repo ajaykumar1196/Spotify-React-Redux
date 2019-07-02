@@ -31,7 +31,7 @@ class Player extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.player.songID !== this.props.player.songID) {
+    if (prevProps.player.trackID !== this.props.player.trackID) {
       this.audioElement.play();
     }
   }
@@ -100,7 +100,7 @@ class Player extends React.Component {
           ref={audioElement => {
             this.audioElement = audioElement;
           }}
-          src={this.props.player.songID}
+          src={this.props.player.trackURL}
         />
 
         <div className="Root__now-playing-bar">
@@ -162,9 +162,9 @@ class Player extends React.Component {
                       title="Enable play"
                     >
                       {this.props.player.isPlaying ? (
-                        <Icon.Pause />
+                        <Icon.Pause  fill={"currentColor"}/>
                       ) : (
-                        <Icon.Play />
+                        <Icon.Play fill={"currentColor"} />
                       )}
                     </div>
 

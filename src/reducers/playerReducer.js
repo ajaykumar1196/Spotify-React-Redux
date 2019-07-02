@@ -8,7 +8,8 @@ const initalState = {
   repeat: false,
   shuffle: false,
   volume: 1,
-  songID: null
+  trackID: "",
+  trackURL: ""
 };
 
 export default (state = initalState, action) => {
@@ -16,7 +17,8 @@ export default (state = initalState, action) => {
     case playerConstants.PLAY_SONG:
       return {
         ...state,
-        songID: action.payload
+        trackURL: action.payload.trackURL,
+        trackID: action.payload.trackID
       };
     case playerConstants.ON_LOAD_START:
       return {

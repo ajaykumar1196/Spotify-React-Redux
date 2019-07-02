@@ -17,7 +17,7 @@ export default class AuthService {
     let queryArguments = [];
     queryArguments.push(`client_id=${process.env.REACT_APP_CLIENT_ID}`);
     queryArguments.push(`response_type=token`);
-    queryArguments.push(`redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}${window.location.pathname}callback`)}`);
+    queryArguments.push(`redirect_uri=${encodeURIComponent(`${window.location.protocol}//${window.location.host}/callback`)}`);
     queryArguments.push(`scope=${SCOPES.join(' ')}`);
     return `https://accounts.spotify.com/authorize/?${queryArguments.join('&')}`;
 

@@ -1,0 +1,116 @@
+.track-object {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: CircularStd;
+  padding: 0px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.track-object-not-playable {
+  opacity: 0.5;
+  cursor: default;
+}
+.track-object:focus,
+.track-object:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.track-object a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.track-object a:focus,
+a:hover {
+  text-decoration: underline;
+  color: #111111;
+}
+
+.track-col.position-outer {
+  text-align: right;
+  padding-right: 1em;
+}
+
+.track-top-align {
+  margin: 10px 0px;
+}
+
+.track-play-pause {
+  color: inherit;
+}
+
+.track-top-align .icon-play {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+}
+
+.track-play-pause svg {
+  height: 1em;
+  width: 1em;
+}
+
+.track-col.name {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 0;
+  overflow: hidden;
+  padding-right: 1px;
+  margin-right: -1px;
+}
+
+.ellipsis-one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 1px;
+  margin-right: -1px;
+}
+
+.track-name {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.015em;
+}
+
+.track-name-wrapper .second-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.Track__entity-by {
+  font-size: 14px;
+  opacity: 1;
+}
+
+.track-name-wrapper .track-row__album-name-link,
+.track-name-wrapper .track-row__artist-name-link {
+  opacity: 0.6;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+.track-name-wrapper .second-line-separator {
+  opacity: 0.6;
+  display: inline-block;
+  font-size: 0.6em;
+  padding: 0 6px;
+}
