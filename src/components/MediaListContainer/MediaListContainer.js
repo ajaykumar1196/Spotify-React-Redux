@@ -7,11 +7,13 @@ class MediaListContainer extends React.Component {
     return items.map(item => {
       return (
         <PlaylistTrackObject
+          key={item.track.id}
           trackName={item.track.name}
           trackURL={item.track.preview_url}
           trackID={item.track.id}
           trackArtists={item.track.artists}
           trackAlbum={item.track.album}
+          trackDuration={item.track.duration_ms}
         />
       );
     });

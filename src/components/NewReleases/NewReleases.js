@@ -28,7 +28,6 @@ class NewReleases extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.browse);
   return {
     newReleasesAlbums: state.browse.newReleasesAlbums,
     isBrowseFetching: state.browse.isFetching

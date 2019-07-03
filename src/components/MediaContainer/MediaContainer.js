@@ -1,5 +1,7 @@
 import React from "react";
 import "./MediaContainer.css";
+import "circular-std";
+
 import MediaObject from "../MediaObject/MediaObject";
 
 class MediaContainer extends React.Component {
@@ -7,7 +9,14 @@ class MediaContainer extends React.Component {
     return items.map(item => {
       const pathName = type + "/" + item.id;
       const artwork = item.images ? item.images[0].url : item.icons[0].url;
-      return <MediaObject artwork={artwork} link={pathName} name={item.name} />;
+      return (
+        <MediaObject
+          key={item.id}
+          artwork={artwork}
+          link={pathName}
+          name={item.name}
+        />
+      );
     });
   };
 

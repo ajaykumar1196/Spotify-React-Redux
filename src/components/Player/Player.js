@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as Icon from "react-feather";
+import { Link } from "react-router-dom";
 
 import "./Player.css";
 
 import { formatSeconds } from "../../utils/numbersUtil";
+import { trackArtists } from "../../utils/trackUtil";
 
 import {
   onLoadedMetaData,
@@ -27,7 +29,9 @@ class Player extends React.Component {
   }
 
   componentDidMount() {
-    this.audioElement.play();
+    if (this.props.player.trackID) {
+      this.audioElement.play();
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -84,6 +88,29 @@ class Player extends React.Component {
     }
   };
 
+  renderArtists = artists => {
+    return trackArtists(artists).map((artist, index, artists) => {
+      return (
+        <span key={artist.id}>
+          <Link
+            disabled
+            tabIndex="-1"
+            className="track-row__artist-name-link"
+            to={`/artist/${artist.id}`}
+          >
+            {artist.name}
+          </Link>
+
+          {index < artists.length - 1 ? (
+            <span className="artists-separator">, </span>
+          ) : (
+            ""
+          )}
+        </span>
+      );
+    });
+  };
+
   render() {
     const volume = this.props.player.muted ? 0 : this.props.player.volume;
     return (
@@ -109,31 +136,34 @@ class Player extends React.Component {
               <div className="now-playing-bar__left">
                 <div className="now-playing">
                   <span className="now-playing__widget-overlay">
-                    <a href="#linkToSong">
+                    <Link to={`/album/${this.props.player.trackAlbumID}`}>
                       <div className="now-playing__cover-art">
                         <div className="cover-art shadow">
                           <div className="icon">
-                            <Icon.Music />
+                            <Icon.Music color="#ffffff" />
                           </div>
                           <div
                             style={{
-                              backgroundImage:
-                                "url(https://i.scdn.co/image/be9511a4f71d35978dc0a6b42dd1d4c3dfad6634)"
+                              backgroundImage: `url(${
+                                this.props.player.trackArtwork
+                              })`
                             }}
                             className="cover-art-image cover-art-image-loaded"
                           />
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   </span>
                   <div className="track-info ellipsis-one-line">
                     <div className="track-info__name ellipsis-one-line">
                       <div className="react-contextmenu-wrapper">
-                        <a href="#linkToSong">Name of the track</a>
+                        <Link to={`/album/${this.props.player.trackAlbumID}`}>
+                          {this.props.player.trackName}
+                        </Link>
                       </div>
                     </div>
                     <div className="track-info__artists ellipsis-one-line">
-                      <a href="#linkToSong">Name of the artist</a>
+                      {this.renderArtists(this.props.player.trackArtists)}
                     </div>
                   </div>
                 </div>
@@ -162,7 +192,7 @@ class Player extends React.Component {
                       title="Enable play"
                     >
                       {this.props.player.isPlaying ? (
-                        <Icon.Pause  fill={"currentColor"}/>
+                        <Icon.Pause fill={"currentColor"} />
                       ) : (
                         <Icon.Play fill={"currentColor"} />
                       )}
@@ -226,115 +256,6 @@ class Player extends React.Component {
             </div>
           </footer>
         </div>
-
-        {/* <div className="player">
-          <div className="player__inner container">
-            <div className="player__section">
-              <div className="player__buttons">
-                <div
-                  className="player__button"
-                  //   onClick={playPrevSong}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <i className="player__button__icon ion-ios-rewind" />
-                </div>
-                <div
-                  className="player__button"
-                  onClick={this.togglePlay}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <i
-                    className={`player__button__icon ion-ios-${
-                      this.props.player.isPlaying ? "pause" : "play"
-                    }`}
-                  />
-                </div>
-                <div
-                  className="player__button"
-                  //   onClick={playNextSongFromButton}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <i className="player__button__icon ion-ios-fastforward" />
-                </div>
-              </div>
-            </div>
-            <div className="player__section player__section--seek">
-              <span>Slider</span>
-              {/* <Slider
-                max={duration}
-                onChange={changeCurrentTime}
-                value={currentTime}
-              /> */}
-        {/* </div>
-            <div className="player__section player__section--time">
-              <div className="player__time">
-                {this.formatSeconds(this.props.player.currentTime)}
-                <div className="player__time__separator">/</div>
-                {this.formatSeconds(this.props.player.duration)}
-              </div>
-            </div>  */}
-        {/* <div className="player__section player__section--options">
-              <div className="player__buttons player__buttons--options">
-                <div
-                  className={`player__button ${
-                    this.props.player.repeat ? "player__button--active" : ""
-                  }`}
-                  //   onClick={this.toggleRepeat}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <i className="player__button__icon ion-loop" />
-                </div>
-                <div
-                  className={`player__button ${
-                    this.props.player.shuffle ? "player__button--active" : ""
-                  }`}
-                  //   onClick={this.toggleShuffle}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <i className="player__button__icon ion-shuffle" />
-                </div> */}
-        {/* <div
-                  className={`player__button ${
-                    showHistory ? "player__button--active" : ""
-                  }`}
-                  onClick={toggleShowHistory}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <i className="player__button__icon ion-android-list" />
-                </div> */}
-        {/* <div
-                  className="player__button player__button--volume"
-                  onClick={this.toggleMuted}
-                  role="button"
-                  tabIndex="0"
-                >
-                  <i
-                    className={`player__button__icon ion-android-volume-${
-                      this.props.player.muted ? "off" : "mute"
-                    }`}
-                  />
-                  <i
-                    className={`player__button__icon player__button__icon--absolute 
-                    
-                    `}
-                  />
-                </div> */}
-        {/* </div>
-            </div> */}
-        {/* <div className="player__section player__section--volume">
-              <span>Slider</span>
-              <Slider
-            max={1}
-            onChange={changeVolume}
-            value={volume}
-          />
-            </div> */}
       </div>
     );
   }

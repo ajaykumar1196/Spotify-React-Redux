@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
 import AuthService from "../../services/authService";
 
 import Home from "../Home/Home";

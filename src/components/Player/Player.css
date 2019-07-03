@@ -4,6 +4,7 @@
 }
 .Root__now-playing-bar a:hover {
   text-decoration: underline;
+  color: inherit;
 }
 
 .Root__now-playing-bar {
@@ -260,7 +261,7 @@
 
 .now-playing-bar__right {
   width: 30%;
-  min-width: 180px;
+  min-width: 130px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

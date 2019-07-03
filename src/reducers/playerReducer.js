@@ -8,8 +8,12 @@ const initalState = {
   repeat: false,
   shuffle: false,
   volume: 1,
+  trackURL: "",
   trackID: "",
-  trackURL: ""
+  trackName: "",
+  trackArtwork: "",
+  trackAlbumID: "",
+  trackArtists: []
 };
 
 export default (state = initalState, action) => {
@@ -18,7 +22,11 @@ export default (state = initalState, action) => {
       return {
         ...state,
         trackURL: action.payload.trackURL,
-        trackID: action.payload.trackID
+        trackID: action.payload.trackID,
+        trackName: action.payload.trackName,
+        trackArtwork: action.payload.trackArtwork,
+        trackAlbumID: action.payload.trackAlbumID,
+        trackArtists: action.payload.trackArtists
       };
     case playerConstants.ON_LOAD_START:
       return {

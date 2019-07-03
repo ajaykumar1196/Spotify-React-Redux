@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./MediaObject.css";
 class MediaObject extends React.Component {
   render() {
@@ -7,9 +8,9 @@ class MediaObject extends React.Component {
         <div className="media-object-container" style={{ maxWidth: "200px" }}>
           <div className="media-object-hoverable">
             <div className="media-object-wrapper ">
-              <a
+              <Link
                 className="media-object-cover-art actionable shadow"
-                href={this.props.link}
+                to={this.props.link}
                 style={{ width: "auto", height: "auto" }}
               >
                 <div>
@@ -35,18 +36,18 @@ class MediaObject extends React.Component {
                     }}
                   />
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="mo-info">
               <div className="react-contextmenu-wrapper">
-                <a
+                <Link
                   className="mo-info-name"
                   title="New Music Friday"
                   dir="auto"
-                  href={this.props.link}
+                  to={this.props.link}
                 >
                   {this.props.name}
-                </a>
+                </Link>
               </div>
             </div>
           </div>

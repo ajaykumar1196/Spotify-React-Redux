@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import "circular-std";
 
@@ -18,17 +18,15 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        {/* <Sidebar /> */}
-        <div className="main-section">
-          <Switch>
-            <Route exact path={RouteConstant.HOME} component={NewReleases} />
-            <Route path={RouteConstant.CATEGORIES} component={Categories} />
-            <Route
-              path={RouteConstant.FEATURED_PLAYLISTS}
-              component={FeaturedPlaylists}
-            />
-            <Route path={RouteConstant.PLAYLIST} component={PlaylistTracks} />
-            {/*<Route path={RouteConstant.CATEGORIES} />
+        <Switch>
+          <Route exact path={RouteConstant.HOME} component={NewReleases} />
+          <Route path={RouteConstant.CATEGORIES} component={Categories} />
+          <Route
+            path={RouteConstant.FEATURED_PLAYLISTS}
+            component={FeaturedPlaylists}
+          />
+          <Route path={RouteConstant.PLAYLIST} component={PlaylistTracks} />
+          {/*<Route path={RouteConstant.CATEGORIES} />
             <Route path={RouteConstant.DISCOVER} />
             <Route path={RouteConstant.ALBUM} />
             <Route path={RouteConstant.ARTIST} />
@@ -37,9 +35,8 @@ class Home extends React.Component {
             <Route path={RouteConstant.USER_ARTISTS} />
             <Route path={RouteConstant.USER_ALBUMS} />
             <Route path={RouteConstant.USER_ALBUMS} /> */}
-            <Route path={RouteConstant.LOGOUT} component={Logout} />
-          </Switch>
-        </div>
+          <Route path={RouteConstant.LOGOUT} component={Logout} />
+        </Switch>
         {this.props.trackID ? <Player /> : null}
       </div>
     );
@@ -53,7 +50,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(withRouter(Home));
+export default connect(mapStateToProps)(withRouter(Home));

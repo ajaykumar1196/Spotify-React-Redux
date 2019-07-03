@@ -1,17 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as Icon from "react-feather";
+import { Link } from "react-router-dom";
 
 import "circular-std";
 import "./PlaylistTrackObject.css";
 
 import { playSong } from "../../actions/playerActions";
 
+import { formatSeconds } from "../../utils/numbersUtil";
 import { trackArtists } from "../../utils/trackUtil";
 
 class PlaylistTrackObject extends React.Component {
   playSong = () => {
-    this.props.playSong(this.props.trackURL, this.props.trackID);
+    this.props.playSong(
+      this.props.trackURL,
+      this.props.trackID,
+      this.props.trackName,
+      this.props.trackAlbum.images[0].url,
+      this.props.trackAlbum.id,
+      this.props.trackArtists
+    );
   };
 
   togglePlay = () => {
@@ -28,16 +37,15 @@ class PlaylistTrackObject extends React.Component {
   renderArtists = artists => {
     return trackArtists(artists).map((artist, index, artists) => {
       return (
-        <span>
-          <a
-            key={artist.id}
+        <span key={artist.id}>
+          <Link
             disabled
-            tabindex="-1"
+            tabIndex="-1"
             className="track-row__artist-name-link"
-            href={`/artist/${artist.id}`}
+            to={`/artist/${artist.id}`}
           >
             {artist.name}
-          </a>
+          </Link>
 
           {index < artists.length - 1 ? (
             <span className="artists-separator">, </span>
@@ -62,7 +70,7 @@ class PlaylistTrackObject extends React.Component {
           !isPlayable ? "track-object-not-playable" : ""
         }`}
         role="button"
-        tabindex="0"
+        tabIndex="0"
       >
         <div className="track-col position-outer">
           <div className="track-play-pause track-top-align">
@@ -87,8 +95,8 @@ class PlaylistTrackObject extends React.Component {
             <div>
               <div className="icon">
                 <svg
-                  width="20"
-                  height="21"
+                  width="12"
+                  height="12"
                   viewBox="0 0 80 81"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -133,13 +141,13 @@ class PlaylistTrackObject extends React.Component {
                 dir="auto"
               >
                 <span className="react-contextmenu-wrapper">
-                  <a
-                    tabindex="-1"
+                  <Link
+                    tabIndex="-1"
                     className="track-row__album-name-link"
-                    href={`/album/${this.props.trackAlbum.id}`}
+                    to={`/album/${this.props.trackAlbum.id}`}
                   >
                     {this.props.trackAlbum.name}
-                  </a>
+                  </Link>
                 </span>
               </span>
             </div>
@@ -147,7 +155,9 @@ class PlaylistTrackObject extends React.Component {
         </div>
         <div className="track-col track-col-duration">
           <div className="track-duration track-top-align">
-            <span>3:45</span>
+            <span>
+              {formatSeconds(Math.floor(this.props.trackDuration / 1000))}
+            </span>
           </div>
         </div>
       </div>
