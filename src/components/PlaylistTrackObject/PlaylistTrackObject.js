@@ -7,6 +7,8 @@ import "./PlaylistTrackObject.css";
 
 import { playSong } from "../../actions/playerActions";
 
+import { trackArtists } from "../../utils/trackUtil";
+
 class PlaylistTrackObject extends React.Component {
   playSong = () => {
     this.props.playSong(this.props.trackURL, this.props.trackID);
@@ -22,6 +24,30 @@ class PlaylistTrackObject extends React.Component {
       audioElement.play();
     }
   };
+
+  renderArtists = artists => {
+    return trackArtists(artists).map((artist, index, artists) => {
+      return (
+        <span>
+          <a
+            key={artist.id}
+            disabled
+            tabindex="-1"
+            className="track-row__artist-name-link"
+            href={`/artist/${artist.id}`}
+          >
+            {artist.name}
+          </a>
+
+          {index < artists.length - 1 ? (
+            <span className="artists-separator">, </span>
+          ) : (
+            ""
+          )}
+        </span>
+      );
+    });
+  };
   render() {
     const { isPlaying } = this.props.player;
     const isActive = this.props.trackID === this.props.player.trackID;
@@ -29,58 +55,98 @@ class PlaylistTrackObject extends React.Component {
 
     return (
       <div
-        onClick={isPlayable ? (isActive ? this.togglePlay : this.playSong) : ""}
-        class={`track-object ${!isPlayable ? "track-object-not-playable" : ""}`}
+        onClick={
+          isPlayable ? (isActive ? this.togglePlay : this.playSong) : null
+        }
+        className={`track-object ${
+          !isPlayable ? "track-object-not-playable" : ""
+        }`}
         role="button"
         tabindex="0"
       >
-        <div class="track-col position-outer">
-          <div class="track-play-pause track-top-align">
+        <div className="track-col position-outer">
+          <div className="track-play-pause track-top-align">
             {isActive && isPlaying ? (
-              <Icon.Pause className="icon-play" fill="currentColor" />
+              <Icon.Pause
+                className="icon-play"
+                fill="#1ed760"
+                color="#1ed760"
+              />
             ) : (
               <Icon.Play className="icon-play" fill="currentColor" />
             )}
           </div>
         </div>
-        <div class="track-col name">
-          <div class="track-name-wrapper track-top-align">
-            <div class="track-name ellipsis-one-line" dir="auto">
+
+        <div className="track-col track-top-align position-outer track-col-cover-art-thumb">
+          <div
+            className="media-object-cover-art track-middle-align media-object-cover-art--with-auto-height"
+            aria-hidden="true"
+            style={{ width: "50px", height: "auto" }}
+          >
+            <div>
+              <div className="icon">
+                <svg
+                  width="20"
+                  height="21"
+                  viewBox="0 0 80 81"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>Playlist Icon</title>
+                  <path
+                    d="M25.6 11.565v45.38c-2.643-3.27-6.68-5.37-11.2-5.37-7.94 0-14.4 6.46-14.4 14.4s6.46 14.4 14.4 14.4 14.4-6.46 14.4-14.4v-51.82l48-10.205V47.2c-2.642-3.27-6.678-5.37-11.2-5.37-7.94 0-14.4 6.46-14.4 14.4s6.46 14.4 14.4 14.4S80 64.17 80 56.23V0L25.6 11.565zm-11.2 65.61c-6.176 0-11.2-5.025-11.2-11.2 0-6.177 5.024-11.2 11.2-11.2 6.176 0 11.2 5.023 11.2 11.2 0 6.174-5.026 11.2-11.2 11.2zm51.2-9.745c-6.176 0-11.2-5.024-11.2-11.2 0-6.174 5.024-11.2 11.2-11.2 6.176 0 11.2 5.026 11.2 11.2 0 6.178-5.026 11.2-11.2 11.2z"
+                    fill="#ffffff"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                className="media-object-cover-art-image media-object-cover-art-image-loaded"
+                style={{
+                  backgroundImage: `url(${this.props.trackAlbum.images[0].url})`
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="track-col name">
+          <div className="track-name-wrapper track-top-align">
+            <div className="track-name ellipsis-one-line" dir="auto">
               {this.props.trackName}
             </div>
-            <div class="second-line">
-              <span class="TrackListRow__artists ellipsis-one-line" dir="auto">
-                <span class="react-contextmenu-wrapper">
-                  <span class="Track__entity-by">By </span>
-                  <a
-                    disabled
-                    tabindex="-1"
-                    class="track-row__artist-name-link"
-                    href="/artist/0Nrwy16xCPXG8AwkMbcVvo"
-                  >
-                    Black Pistol Fire
-                  </a>
+            <div className="second-line">
+              <span
+                className="TrackListRow__artists ellipsis-one-line"
+                dir="auto"
+              >
+                <span className="react-contextmenu-wrapper">
+                  <span className="Track__entity-by">By </span>
+                  {this.renderArtists(this.props.trackArtists)}
                 </span>
               </span>
-              <span class="second-line-separator" aria-label="in album">
+              <span className="second-line-separator" aria-label="in album">
                 •
               </span>
-              <span class="TrackListRow__album ellipsis-one-line" dir="auto">
-                <span class="react-contextmenu-wrapper">
+              <span
+                className="TrackListRow__album ellipsis-one-line"
+                dir="auto"
+              >
+                <span className="react-contextmenu-wrapper">
                   <a
                     tabindex="-1"
-                    class="track-row__album-name-link"
-                    href="/album/7DVKYtrPILCQxbUgP7EJ0a"
+                    className="track-row__album-name-link"
+                    href={`/album/${this.props.trackAlbum.id}`}
                   >
-                    Pick Your Poison
+                    {this.props.trackAlbum.name}
                   </a>
                 </span>
               </span>
             </div>
           </div>
         </div>
-        <div class="track-col track-col-duration">
-          <div class="track-duration track-top-align">
+        <div className="track-col track-col-duration">
+          <div className="track-duration track-top-align">
             <span>3:45</span>
           </div>
         </div>

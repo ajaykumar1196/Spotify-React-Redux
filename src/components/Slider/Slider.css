@@ -22,7 +22,7 @@
 .slider__bar__fill {
   position: relative;
   height: 100%;
-  background-color: green;
+  background-color: #1ed760 !important;
   border-radius: 2px;
 }
 

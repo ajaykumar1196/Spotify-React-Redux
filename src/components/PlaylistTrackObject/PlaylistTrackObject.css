@@ -114,3 +114,7 @@ a:hover {
   font-size: 0.6em;
   padding: 0 6px;
 }
+
+.artists-separator {
+  opacity: 0.6;
+}

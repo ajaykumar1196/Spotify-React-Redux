@@ -14,7 +14,7 @@ class PlayListTracks extends React.Component {
       <div>
         {this.props.playlistTracks ? (
           <MediaListContainer
-            heading={"Playlist Items"}
+            heading={this.props.playlistTracks.name}
             items={this.props.playlistTracks.items}
             type={"track"}
           />

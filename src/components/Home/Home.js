@@ -11,7 +11,6 @@ import Player from "../Player/Player";
 import Logout from "../Logout/Logout";
 import NewReleases from "../NewReleases/NewReleases";
 import Categories from "../Categories/Categories";
-import PlaylistTrackObject from "../PlaylistTrackObject/PlaylistTrackObject";
 import FeaturedPlaylists from "../FeaturedPlaylists/FeaturedPlaylists";
 import PlaylistTracks from "../PlaylistTracks/PlaylistTracks";
 
@@ -20,22 +19,12 @@ class Home extends React.Component {
     return (
       <div className="home">
         {/* <Sidebar /> */}
-        <PlaylistTrackObject />
-        {/* <Artwork
-          isActive={
-            this.props.songID ===
-            "https://p.scdn.co/mp3-preview/32cc6f7a3fca362dfcde753f0339f42539f15c9a"
-          }
-          songID={
-            "https://p.scdn.co/mp3-preview/32cc6f7a3fca362dfcde753f0339f42539f15c9a"
-          }
-        /> */}
         <div className="main-section">
           <Switch>
             <Route exact path={RouteConstant.HOME} component={NewReleases} />
             <Route path={RouteConstant.CATEGORIES} component={Categories} />
             <Route
-              path={RouteConstant.FEATURED_PLAYLIST}
+              path={RouteConstant.FEATURED_PLAYLISTS}
               component={FeaturedPlaylists}
             />
             <Route path={RouteConstant.PLAYLIST} component={PlaylistTracks} />
@@ -60,12 +49,7 @@ class Home extends React.Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    userProfile: state.user.userProfile,
-    isFetching: state.user.isFetching,
-    isPlaying: state.player.isPlaying,
-    trackID: state.player.trackID,
-    newReleasesAlbums: state.browse.newReleasesAlbums,
-    isBrowseFetching: state.browse.isFetching
+    trackID: state.player.trackID
   };
 };
 
