@@ -7,3 +7,7 @@ export const trackArtists = artists => {
   });
   return trackArtistsObject;
 };
+
+// export getImageURL = (images) =>{
+
+// }

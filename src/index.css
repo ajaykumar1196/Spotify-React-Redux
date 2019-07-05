@@ -1,0 +1,15 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+.container {
+  position: relative;
+  left: 230px;
+  width: calc(100% - 230px);
+}

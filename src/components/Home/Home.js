@@ -13,11 +13,14 @@ import NewReleases from "../NewReleases/NewReleases";
 import Categories from "../Categories/Categories";
 import FeaturedPlaylists from "../FeaturedPlaylists/FeaturedPlaylists";
 import PlaylistTracks from "../PlaylistTracks/PlaylistTracks";
+import Sidebar from "../Sidebar/Sidebar";
 
 class Home extends React.Component {
   render() {
     return (
-      <div className="home">
+      <div className="Root__container">
+        <Sidebar />
+
         <Switch>
           <Route exact path={RouteConstant.HOME} component={NewReleases} />
           <Route path={RouteConstant.CATEGORIES} component={Categories} />
@@ -37,6 +40,7 @@ class Home extends React.Component {
             <Route path={RouteConstant.USER_ALBUMS} /> */}
           <Route path={RouteConstant.LOGOUT} component={Logout} />
         </Switch>
+
         {this.props.trackID ? <Player /> : null}
       </div>
     );
