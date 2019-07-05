@@ -16,8 +16,6 @@ class MediaObject extends React.Component {
                 <div>
                   <div className="icon">
                     <svg
-                      width="55"
-                      height="55"
                       viewBox="0 0 80 81"
                       xmlns="http://www.w3.org/2000/svg"
                     >
