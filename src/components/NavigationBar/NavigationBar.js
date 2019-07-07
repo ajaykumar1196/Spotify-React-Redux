@@ -7,7 +7,7 @@ class NavigationBar extends React.Component {
   renderNavBarItems = navBarItems => {
     return navBarItems.map(item => {
       return (
-        <li class="nav-bar-link">
+        <li key={item.name} className="nav-bar-link">
           <div>
             <NavLink
               className="nav-bar-link-item"
@@ -21,10 +21,11 @@ class NavigationBar extends React.Component {
       );
     });
   };
+
   render() {
     return (
-      <nav class="nav-bar">
-        <ul class="nav-bar-item-container">
+      <nav className="nav-bar">
+        <ul className="nav-bar-item-container">
           {this.renderNavBarItems(this.props.links)}
         </ul>
       </nav>

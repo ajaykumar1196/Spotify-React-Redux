@@ -14,16 +14,19 @@ class Sidebar extends React.Component {
   renderCurrentUserPlaylists = playlistsItems => {
     return playlistsItems.map(item => {
       return (
-        <li class="navBar-item navBar-item--small navBar-item--with-icon-right recently-played__item-2">
-          <div class="react-contextmenu-wrapper">
+        <li
+          key={item.id}
+          className="navBar-item navBar-item--small navBar-item--with-icon-right recently-played__item-2"
+        >
+          <div className="react-contextmenu-wrapper">
             <div>
               <Link
-                class="navBar-link link-subtle RecentlyPlayedWidget__link playlistItems"
+                className="navBar-link link-subtle RecentlyPlayedWidget__link playlistItems"
                 to={`/playlist/${item.id}`}
               >
-                <div class="navBar-link-text-with-icon-wrapper">
-                  <div class="navbar-link__text">
-                    <div dir="auto" class="ellipsis-one-line">
+                <div className="navBar-link-text-with-icon-wrapper">
+                  <div className="navbar-link__text">
+                    <div dir="auto" className="ellipsis-one-line">
                       {item.name}
                     </div>
                   </div>
@@ -57,9 +60,8 @@ class Sidebar extends React.Component {
               <div className="navBar-item navBar-item--with-icon-left">
                 <NavLink
                   className="link-subtle navBar-link ellipsis-one-line"
-                  aria-label="Search"
-                  exact
-                  to="/"
+                  aria-label="Browse"
+                  to="/browse"
                   activeClassName={
                     "link-subtle navBar-link ellipsis-one-line navBar-link--active"
                   }
@@ -145,8 +147,8 @@ class Sidebar extends React.Component {
             </li>
           </ul>
 
-          <div class="recently-played navBar-group">
-            <h2 class="navBar-group-header">Playlists</h2>
+          <div className="recently-played navBar-group">
+            <h2 className="navBar-group-header">Playlists</h2>
             <ul>
               {this.props.currentUserPlaylists
                 ? this.renderCurrentUserPlaylists(

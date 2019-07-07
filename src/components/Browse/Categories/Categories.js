@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchCategories } from "../../actions/browseActions";
+import { fetchCategories } from "../../../actions/browseActions";
 
-import MediaContainer from "../MediaContainer/MediaContainer";
+import MediaContainer from "../../MediaContainer/MediaContainer";
 
 class Categories extends React.Component {
   componentDidMount() {
@@ -28,7 +28,6 @@ class Categories extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.browse);
   return {
     categories: state.browse.categories
   };

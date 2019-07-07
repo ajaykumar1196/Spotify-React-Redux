@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { fetchFeaturedPlaylists } from "../../actions/browseActions";
+import { fetchFeaturedPlaylists } from "../../../actions/browseActions";
 
-import MediaContainer from "../MediaContainer/MediaContainer";
+import MediaContainer from "../../MediaContainer/MediaContainer";
 
 class FeaturedPlaylists extends React.Component {
   componentDidMount() {
@@ -12,7 +12,7 @@ class FeaturedPlaylists extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div >
         {this.props.featuredPlaylists ? (
           <MediaContainer
             heading={"Featured Playlists"}
