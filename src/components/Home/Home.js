@@ -14,13 +14,13 @@ import Categories from "../Categories/Categories";
 import FeaturedPlaylists from "../FeaturedPlaylists/FeaturedPlaylists";
 import PlaylistTracks from "../PlaylistTracks/PlaylistTracks";
 import Sidebar from "../Sidebar/Sidebar";
+import Collection from "../Collection/Collection";
 
 class Home extends React.Component {
   render() {
     return (
       <div className="Root__container">
         <Sidebar />
-
         <Switch>
           <Route exact path={RouteConstant.HOME} component={NewReleases} />
           <Route path={RouteConstant.CATEGORIES} component={Categories} />
@@ -29,15 +29,11 @@ class Home extends React.Component {
             component={FeaturedPlaylists}
           />
           <Route path={RouteConstant.PLAYLIST} component={PlaylistTracks} />
+          <Route path={RouteConstant.COLLECTION} component={Collection} />
           {/*<Route path={RouteConstant.CATEGORIES} />
-            <Route path={RouteConstant.DISCOVER} />
             <Route path={RouteConstant.ALBUM} />
             <Route path={RouteConstant.ARTIST} />
-            <Route path={RouteConstant.USER_RECENTLY_PLAYED} />
-            <Route path={RouteConstant.USER_PLAYLIST} />
-            <Route path={RouteConstant.USER_ARTISTS} />
-            <Route path={RouteConstant.USER_ALBUMS} />
-            <Route path={RouteConstant.USER_ALBUMS} /> */}
+             */}
           <Route path={RouteConstant.LOGOUT} component={Logout} />
         </Switch>
 

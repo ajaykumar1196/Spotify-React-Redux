@@ -118,7 +118,10 @@ class Sidebar extends React.Component {
                   <NavLink
                     className="link-subtle navBar-link ellipsis-one-line"
                     aria-label="Your Library"
-                    to="/collection/playlists"
+                    to="/collection"
+                    activeClassName={
+                      "link-subtle navBar-link ellipsis-one-line navBar-link--active"
+                    }
                   >
                     <div className="navBar-link-text-with-icon-wrapper">
                       <div className="icon collection-active-icon NavBar__icon">

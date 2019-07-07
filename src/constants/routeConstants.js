@@ -2,7 +2,7 @@ export const HOME = "/";
 
 export const CATEGORIES = "/categories";
 export const FEATURED_PLAYLISTS = "/featured-playlists";
-export const DISCOVER = "/discover";
+export const COLLECTION = "/collection";
 
 export const ALBUM = "/album/:albumID";
 export const ARTIST = "/artist/:artistID";

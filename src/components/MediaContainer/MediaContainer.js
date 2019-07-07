@@ -7,7 +7,7 @@ import MediaObject from "../MediaObject/MediaObject";
 class MediaContainer extends React.Component {
   renderMediaObjects = ({ items, type }) => {
     return items.map(item => {
-      const pathName = type + "/" + item.id;
+      const pathName = "/" + type + "/" + item.id;
       const artwork = item.images ? item.images[0].url : item.icons[0].url;
       return (
         <MediaObject
