@@ -1,9 +1,5 @@
 export const navBarLibraryItems = [
   {
-    name: "Recently Played",
-    link: "/collection/recently-played"
-  },
-  {
     name: "Playlists",
     link: "/collection/playlists"
   },

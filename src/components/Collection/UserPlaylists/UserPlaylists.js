@@ -5,7 +5,7 @@ import { fetchCurrentUserPlaylists } from "../../../actions/currentUserActions";
 
 import MediaContainer from "../../MediaContainer/MediaContainer";
 
-class RecentlyPlayed extends React.Component {
+class UserPlaylists extends React.Component {
   componentDidMount() {
     this.props.fetchCurrentUserPlaylists();
   }
@@ -15,7 +15,7 @@ class RecentlyPlayed extends React.Component {
       <div>
         {this.props.currentUserPlaylists ? (
           <MediaContainer
-            heading={"Recently Played"}
+            heading={"Playlists"}
             items={this.props.currentUserPlaylists.items}
             type={"playlist"}
           />
@@ -38,4 +38,4 @@ export default connect(
   {
     fetchCurrentUserPlaylists
   }
-)(RecentlyPlayed);
+)(UserPlaylists);
