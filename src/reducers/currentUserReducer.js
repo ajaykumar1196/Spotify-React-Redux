@@ -3,15 +3,24 @@ import * as currentUserConstants from "../constants/actionConstants";
 const initalState = {
   isFetching: false,
   currentUserPlaylists: null,
+  currentUserArtists: null,
   error: null
 };
 
 export default (state = initalState, action) => {
   switch (action.type) {
     case currentUserConstants.FETCH_CURRENT_USER_PLAYLISTS_PENDING:
+    case currentUserConstants.FETCH_CURRENT_USER_ARTISTS_PENDING:
       return {
         ...state,
         isFetching: true
+      };
+    case currentUserConstants.FETCH_CURRENT_USER_PLAYLISTS_FAILURE:
+    case currentUserConstants.FETCH_CURRENT_USER_ARTISTS_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
       };
     case currentUserConstants.FETCH_CURRENT_USER_PLAYLISTS_SUCCESS:
       return {
@@ -19,10 +28,10 @@ export default (state = initalState, action) => {
         currentUserPlaylists: action.payload,
         isFetching: false
       };
-    case currentUserConstants.FETCH_CURRENT_USER_PLAYLISTS_FAILURE:
+    case currentUserConstants.FETCH_CURRENT_USER_ARTISTS_SUCCESS:
       return {
         ...state,
-        error: action.payload,
+        currentUserArtists: action.payload,
         isFetching: false
       };
     default:

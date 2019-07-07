@@ -32,3 +32,35 @@ export const fetchCurrentUserPlaylists = () => dispatch => {
       dispatch(fetchCurrentUserPlaylistsFailure(err));
     });
 };
+
+const fetchCurrentUserArtistsPending = () => {
+  return {
+    type: currentUserConstants.FETCH_CURRENT_USER_ARTISTS_PENDING
+  };
+};
+
+const fetchCurrentUserArtistsFailure = err => {
+  return {
+    type: currentUserConstants.FETCH_CURRENT_USER_ARTISTS_FAILURE,
+    payload: err
+  };
+};
+
+const fetchCurrentUserArtistsSuccess = currentUserArtists => {
+  return {
+    type: currentUserConstants.FETCH_CURRENT_USER_ARTISTS_SUCCESS,
+    payload: currentUserArtists
+  };
+};
+
+export const fetchCurrentUserArtists = () => dispatch => {
+  dispatch(fetchCurrentUserArtistsPending());
+  return spotify()
+    .get(process.env.REACT_APP_BASE_URL + "/me/following?type=artist")
+    .then(res => {
+      dispatch(fetchCurrentUserArtistsSuccess(res.data));
+    })
+    .catch(err => {
+      dispatch(fetchCurrentUserArtistsFailure(err));
+    });
+};
