@@ -27,7 +27,7 @@ const fetchPlaylistTracksSuccess = (playlistTracks, playlistID) => {
 export const fetchPlaylistTracks = playlistID => dispatch => {
   dispatch(fetchPlaylistTracksPending());
   return spotify()
-    .get(process.env.REACT_APP_BASE_URL + `/playlists/${playlistID}/tracks`)
+    .get(process.env.REACT_APP_BASE_URL + `/playlists/${playlistID}`)
     .then(res => {
       dispatch(fetchPlaylistTracksSuccess(res.data, playlistID));
     })

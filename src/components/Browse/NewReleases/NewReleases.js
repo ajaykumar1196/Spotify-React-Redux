@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchNewReleases } from "../../../actions/browseActions";
 
-import MediaContainer from "../../MediaContainer/MediaContainer";
+import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 
 class NewReleases extends React.Component {
   componentDidMount() {
@@ -14,7 +14,7 @@ class NewReleases extends React.Component {
     return (
       <div>
         {this.props.newReleasesAlbums ? (
-          <MediaContainer
+          <MediaObjectsContainer
             heading={"New Releases"}
             items={this.props.newReleasesAlbums.albums.items}
             type={"album"}

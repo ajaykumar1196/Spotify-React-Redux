@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchCurrentUserArtists } from "../../../actions/currentUserActions";
 
-import MediaContainer from "../../MediaContainer/MediaContainer";
+import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 
 class UserArtists extends React.Component {
   componentDidMount() {
@@ -14,7 +14,7 @@ class UserArtists extends React.Component {
     return (
       <div>
         {this.props.currentUserArtists ? (
-          <MediaContainer
+          <MediaObjectsContainer
             heading={"Artists"}
             items={this.props.currentUserArtists.artists.items}
             type={"artist"}

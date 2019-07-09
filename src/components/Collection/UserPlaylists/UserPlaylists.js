@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchCurrentUserPlaylists } from "../../../actions/currentUserActions";
 
-import MediaContainer from "../../MediaContainer/MediaContainer";
+import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 
 class UserPlaylists extends React.Component {
   componentDidMount() {
@@ -14,7 +14,7 @@ class UserPlaylists extends React.Component {
     return (
       <div>
         {this.props.currentUserPlaylists ? (
-          <MediaContainer
+          <MediaObjectsContainer
             heading={"Playlists"}
             items={this.props.currentUserPlaylists.items}
             type={"playlist"}

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchCategories } from "../../../actions/browseActions";
 
-import MediaContainer from "../../MediaContainer/MediaContainer";
+import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 
 class Categories extends React.Component {
   componentDidMount() {
@@ -14,7 +14,7 @@ class Categories extends React.Component {
     return (
       <div>
         {this.props.categories ? (
-          <MediaContainer
+          <MediaObjectsContainer
             heading={"Categories"}
             items={this.props.categories.categories.items}
             type={"categories"}

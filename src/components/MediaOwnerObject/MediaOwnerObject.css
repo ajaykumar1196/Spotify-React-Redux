@@ -1,0 +1,70 @@
+.TrackListHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin: 0 0 20px;
+  max-width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.owner-media-object {
+  min-width: 157px;
+  position: relative;
+}
+
+.TrackListHeader__body {
+  margin: 0 40px;
+}
+
+.TrackListHeader__entity-name {
+  padding-bottom: 10px;
+}
+
+.TrackListHeader__entity-name h2 {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+  color: #333333;
+  text-transform: none;
+}
+
+.TrackListHeader__entity-by {
+  color: #333333;
+  opacity: 0.6;
+}
+
+.TrackListHeader a {
+  color: #333333;
+  text-decoration: none;
+  opacity: 0.8;
+  font-weight: 400;
+  transition: opacity 0.2s linear;
+}
+
+.TrackListHeader a:hover {
+  text-decoration: underline;
+}
+
+.TrackListHeader__entity-additional-info {
+  margin-bottom: 0.8em;
+}
+.TrackListHeader__text-silence {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.015em;
+  font-weight: var(--glue-font-weight-normal);
+  color: #b3b3b3;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #777777;
+  opacity: 0.6;
+}

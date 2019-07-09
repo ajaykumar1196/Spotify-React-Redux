@@ -1,10 +1,10 @@
 import React from "react";
-import "./MediaContainer.css";
+import "./MediaObjectsContainer.css";
 import "circular-std";
 
 import MediaObject from "../MediaObject/MediaObject";
 
-class MediaContainer extends React.Component {
+class MediaObjectsContainer extends React.Component {
   renderMediaObjects = ({ items, type }) => {
     return items.map(item => {
       const pathName = "/" + type + "/" + item.id;
@@ -36,4 +36,4 @@ class MediaContainer extends React.Component {
   }
 }
 
-export default MediaContainer;
+export default MediaObjectsContainer;

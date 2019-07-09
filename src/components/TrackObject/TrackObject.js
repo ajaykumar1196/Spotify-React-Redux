@@ -4,14 +4,14 @@ import * as Icon from "react-feather";
 import { Link } from "react-router-dom";
 
 import "circular-std";
-import "./PlaylistTrackObject.css";
+import "./TrackObject.css";
 
 import { playSong } from "../../actions/playerActions";
 
 import { formatSeconds } from "../../utils/numbersUtil";
 import { trackArtists } from "../../utils/trackUtil";
 
-class PlaylistTrackObject extends React.Component {
+class TrackObject extends React.Component {
   playSong = () => {
     this.props.playSong(
       this.props.trackURL,
@@ -169,4 +169,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { playSong }
-)(PlaylistTrackObject);
+)(TrackObject);
