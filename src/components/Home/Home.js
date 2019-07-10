@@ -13,6 +13,7 @@ import PlaylistTracks from "../PlaylistTracks/PlaylistTracks";
 import Sidebar from "../Sidebar/Sidebar";
 import Collection from "../Collection/Collection";
 import Browse from "../Browse/Browse";
+import AlbumTracks from "../AlbumTracks/AlbumTracks";
 
 class Home extends React.Component {
   render() {
@@ -22,6 +23,7 @@ class Home extends React.Component {
         <Switch>
           <Route path={RouteConstant.BROWSE} component={Browse} />
           <Route path={RouteConstant.PLAYLIST} component={PlaylistTracks} />
+          <Route path={RouteConstant.ALBUM} component={AlbumTracks} />
           <Route path={RouteConstant.COLLECTION} component={Collection} />
           <Route path={RouteConstant.LOGOUT} component={Logout} />
           <Redirect to={RouteConstant.BROWSE} />

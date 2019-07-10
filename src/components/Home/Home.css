@@ -4,3 +4,8 @@
   width: 100%;
   position: relative;
 }
+
+.contents {
+  padding-top: 32px;
+  padding-bottom: 100px;
+}

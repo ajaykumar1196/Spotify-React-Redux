@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { fetchPlaylistTracks } from "../../actions/playlistActions";
 
-import "./PlaylistTracks.css";
-
 import TrackObject from "../TrackObject/TrackObject";
 import MediaOwnerObject from "../MediaOwnerObject/MediaOwnerObject";
 
