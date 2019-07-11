@@ -12,7 +12,7 @@ class UserPlaylists extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mediaContainer">
         {this.props.currentUserPlaylists ? (
           <MediaObjectsContainer
             heading={"Playlists"}
@@ -20,8 +20,8 @@ class UserPlaylists extends React.Component {
             type={"playlist"}
           />
         ) : (
-          "Loading Playlists..."
-        )}
+            "Loading Playlists..."
+          )}
       </div>
     );
   }

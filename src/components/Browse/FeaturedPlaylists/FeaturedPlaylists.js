@@ -12,7 +12,7 @@ class FeaturedPlaylists extends React.Component {
 
   render() {
     return (
-      <div >
+      <div className="container">
         {this.props.featuredPlaylists ? (
           <MediaObjectsContainer
             heading={"Featured Playlists"}
@@ -20,8 +20,8 @@ class FeaturedPlaylists extends React.Component {
             type={"playlist"}
           />
         ) : (
-          "Loading Playlists..."
-        )}
+            "Loading Playlists..."
+          )}
       </div>
     );
   }

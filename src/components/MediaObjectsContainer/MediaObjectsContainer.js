@@ -22,7 +22,7 @@ class MediaObjectsContainer extends React.Component {
 
   render() {
     return (
-      <div className="mediaContainer">
+      <div >
         <div>
           <h1 className="mediaContainer-heading">{this.props.heading}</h1>
         </div>

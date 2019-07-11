@@ -12,7 +12,7 @@ class UserArtists extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mediaContainer">
         {this.props.currentUserArtists ? (
           <MediaObjectsContainer
             heading={"Artists"}

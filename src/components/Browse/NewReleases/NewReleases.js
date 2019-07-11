@@ -12,7 +12,7 @@ class NewReleases extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mediaContainer">
         {this.props.newReleasesAlbums ? (
           <MediaObjectsContainer
             heading={"New Releases"}
@@ -20,8 +20,8 @@ class NewReleases extends React.Component {
             type={"album"}
           />
         ) : (
-          "Loading Albums..."
-        )}
+            "Loading Albums..."
+          )}
       </div>
     );
   }
