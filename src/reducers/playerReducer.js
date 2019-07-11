@@ -7,7 +7,7 @@ const initalState = {
   muted: false,
   repeat: false,
   shuffle: false,
-  volume: 1,
+  volume: 0.5,
   trackURL: "",
   trackID: "",
   trackName: "",

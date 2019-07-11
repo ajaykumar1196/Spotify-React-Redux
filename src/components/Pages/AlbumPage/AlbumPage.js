@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { fetchAlbumTracks } from "../../actions/albumActions";
+import { fetchAlbumTracks } from "../../../actions/albumActions";
 
-import TrackObject from "../TrackObject/TrackObject";
-import MediaOwnerObject from "../MediaOwnerObject/MediaOwnerObject";
+import TrackObject from "../../TrackObject/TrackObject";
+import MediaOwnerObject from "../../MediaOwnerObject/MediaOwnerObject";
 
-class AlbumTracks extends React.Component {
+class AlbumPage extends React.Component {
   componentDidMount() {
     this.props.fetchAlbumTracks(this.props.match.params.albumID);
   }
@@ -27,6 +27,7 @@ class AlbumTracks extends React.Component {
           trackArtists={item.artists}
           trackAlbum={album}
           trackDuration={item.duration_ms}
+          activeID={this.props.match.params.albumID}
         />
       );
     });
@@ -36,9 +37,9 @@ class AlbumTracks extends React.Component {
     return (
       <div className="container">
         <div className="contents">
-          {this.props.albumTracks ? (
-            <div>
-              <div className="mediaContainer">
+          <div className="mediaContainer">
+            {this.props.albumTracks ? (
+              <div>
                 <MediaOwnerObject
                   artwork={this.props.albumTracks.images[0].url}
                   name={this.props.albumTracks.name}
@@ -51,10 +52,10 @@ class AlbumTracks extends React.Component {
                   this.props.albumTracks
                 )}
               </div>
-            </div>
-          ) : (
-            "Loading Tracks..."
-          )}
+            ) : (
+                "Loading Tracks..."
+              )}
+          </div>
         </div>
       </div>
     );
@@ -72,4 +73,4 @@ export default connect(
   {
     fetchAlbumTracks
   }
-)(withRouter(AlbumTracks));
+)(withRouter(AlbumPage));

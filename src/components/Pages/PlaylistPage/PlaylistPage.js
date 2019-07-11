@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { fetchPlaylistTracks } from "../../actions/playlistActions";
+import { fetchPlaylistTracks } from "../../../actions/playlistActions";
+import TrackObject from "../../TrackObject/TrackObject";
+import MediaOwnerObject from "../../MediaOwnerObject/MediaOwnerObject";
 
-import TrackObject from "../TrackObject/TrackObject";
-import MediaOwnerObject from "../MediaOwnerObject/MediaOwnerObject";
-
-class PlayListTracks extends React.Component {
+class PlaylistPage extends React.Component {
   componentDidMount() {
     this.props.fetchPlaylistTracks(this.props.match.params.playlistID);
   }
@@ -38,9 +37,9 @@ class PlayListTracks extends React.Component {
     return (
       <div className="container">
         <div className="contents">
-          {this.props.playlistTracks ? (
-            <div>
-              <div className="mediaContainer">
+          <div className="mediaContainer">
+            {this.props.playlistTracks ? (
+              <div>
                 <MediaOwnerObject
                   artwork={this.props.playlistTracks.images[0].url}
                   name={this.props.playlistTracks.name}
@@ -50,10 +49,10 @@ class PlayListTracks extends React.Component {
                 />
                 {this.renderMediaList(this.props.playlistTracks.tracks.items)}
               </div>
-            </div>
-          ) : (
-            "Loading Tracks..."
-          )}
+            ) : (
+                "Loading Tracks..."
+              )}
+          </div>
         </div>
       </div>
     );
@@ -71,4 +70,4 @@ export default connect(
   {
     fetchPlaylistTracks
   }
-)(withRouter(PlayListTracks));
+)(withRouter(PlaylistPage));

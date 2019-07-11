@@ -9,11 +9,11 @@ import * as RouteConstant from "../../constants/routeConstants";
 
 import Player from "../Player/Player";
 import Logout from "../Logout/Logout";
-import PlaylistTracks from "../PlaylistTracks/PlaylistTracks";
+import PlaylistPage from "../Pages/PlaylistPage/PlaylistPage";
 import Sidebar from "../Sidebar/Sidebar";
 import Collection from "../Collection/Collection";
 import Browse from "../Browse/Browse";
-import AlbumTracks from "../AlbumTracks/AlbumTracks";
+import AlbumPage from "../Pages/AlbumPage/AlbumPage";
 
 class Home extends React.Component {
   render() {
@@ -22,8 +22,8 @@ class Home extends React.Component {
         <Sidebar />
         <Switch>
           <Route path={RouteConstant.BROWSE} component={Browse} />
-          <Route path={RouteConstant.PLAYLIST} component={PlaylistTracks} />
-          <Route path={RouteConstant.ALBUM} component={AlbumTracks} />
+          <Route path={RouteConstant.PLAYLIST} component={PlaylistPage} />
+          <Route path={RouteConstant.ALBUM} component={AlbumPage} />
           <Route path={RouteConstant.COLLECTION} component={Collection} />
           <Route path={RouteConstant.LOGOUT} component={Logout} />
           <Redirect to={RouteConstant.BROWSE} />

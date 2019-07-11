@@ -36,10 +36,10 @@ class TrackObject extends React.Component {
 
   renderArtists = artists => {
     return trackArtists(artists).map((artist, index, artists) => {
-      return (
+      return (this.props.activeID !== artist.id ?
         <span key={artist.id}>
           <Link
-            disabled
+            onClick={e => e.stopPropagation()}
             tabIndex="-1"
             className="track-row__artist-name-link"
             to={`/artist/${artist.id}`}
@@ -50,9 +50,10 @@ class TrackObject extends React.Component {
           {index < artists.length - 1 ? (
             <span className="artists-separator">, </span>
           ) : (
-            ""
-          )}
-        </span>
+              ""
+            )}
+        </span> : ""
+
       );
     });
   };
@@ -68,7 +69,7 @@ class TrackObject extends React.Component {
         }
         className={`track-object ${
           !isPlayable ? "track-object-not-playable" : ""
-        }`}
+          }`}
         role="button"
         tabIndex="0"
       >
@@ -81,8 +82,8 @@ class TrackObject extends React.Component {
                 color="#1ed760"
               />
             ) : (
-              <Icon.Play className="icon-play" fill="currentColor" />
-            )}
+                <Icon.Play className="icon-play" fill="currentColor" />
+              )}
           </div>
         </div>
 
@@ -128,23 +129,35 @@ class TrackObject extends React.Component {
                   {this.renderArtists(this.props.trackArtists)}
                 </span>
               </span>
-              <span className="second-line-separator" aria-label="in album">
-                •
-              </span>
-              <span
-                className="TrackListRow__album ellipsis-one-line"
-                dir="auto"
-              >
-                <span className="react-contextmenu-wrapper">
-                  <Link
-                    tabIndex="-1"
-                    className="track-row__album-name-link"
-                    to={`/album/${this.props.trackAlbum.id}`}
-                  >
-                    {this.props.trackAlbum.name}
-                  </Link>
-                </span>
-              </span>
+
+              {
+                this.props.activeID !== this.props.trackAlbum.id ?
+                  <span>
+
+                    <span className="second-line-separator" aria-label="in album">
+                      •
+                  </span>
+                    <span
+                      className="TrackListRow__album ellipsis-one-line"
+                      dir="auto"
+                    >
+                      <span className="react-contextmenu-wrapper">
+                        <Link
+
+                          onClick={e => e.stopPropagation()}
+                          tabIndex="-1"
+                          className="track-row__album-name-link"
+                          to={`/album/${this.props.trackAlbum.id}`}
+                        >
+                          {this.props.trackAlbum.name}
+                        </Link>
+
+
+                      </span>
+                    </span>
+                  </span>
+                  : ""
+              }
             </div>
           </div>
         </div>

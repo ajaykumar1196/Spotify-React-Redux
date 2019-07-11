@@ -20,7 +20,7 @@ import {
   toggleShuffle
 } from "../../actions/playerActions";
 
-import Slider from "../Slider/Slider";
+import Slider from "./Slider/Slider";
 
 class Player extends React.Component {
   constructor() {
