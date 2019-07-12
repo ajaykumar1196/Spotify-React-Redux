@@ -1,0 +1,41 @@
+.empty-message {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.empty-message__title {
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.empty-message__subtitle {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.015em;
+  font-weight: 400;
+  color: #b3b3b3;
+  text-transform: none;
+}
+
+.btn.btn-black {
+  background: #000000;
+  color: #ffffff;
+  padding: 11px 44px;
+  font-weight: 400;
+}
+
+.cta-button {
+  margin-top: 36px;
+}
+
+.empty-message a {
+  text-decoration: none;
+}
+
+.empty-message .btn:hover {
+  text-decoration: underline;
+}
