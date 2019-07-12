@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchCurrentUserArtists } from "../../../actions/currentUserActions";
 
 import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
+import EmptyMessage from "../../EmptyMessage/EmptyMessage";
 
 class UserArtists extends React.Component {
   componentDidMount() {
@@ -13,22 +14,22 @@ class UserArtists extends React.Component {
   render() {
     return (
       <div className="mediaContainer">
-        {this.props.currentUserArtists ? (
-          <MediaObjectsContainer
-            heading={"Artists"}
-            items={this.props.currentUserArtists.artists.items}
-            type={"artist"}
-          />
-        ) : (
-          "Loading Playlists..."
-        )}
+        {this.props.currentUserArtists ?
+          this.props.currentUserArtists.artists.items.length ? (
+            <MediaObjectsContainer
+              heading={"Artists"}
+              items={this.props.currentUserArtists.artists.items}
+              type={"artist"}
+            />
+          ) : <EmptyMessage title="Like your favourite artists" subtitle="Follow artists you love to listen." /> : (
+            "Loading Artists..."
+          )}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state.currentUser.currentUserArtists);
   return {
     currentUserArtists: state.currentUser.currentUserArtists
   };

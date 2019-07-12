@@ -64,3 +64,36 @@ export const fetchCurrentUserArtists = () => dispatch => {
       dispatch(fetchCurrentUserArtistsFailure(err));
     });
 };
+
+
+const fetchCurrentUserAlbumsPending = () => {
+  return {
+    type: currentUserConstants.FETCH_CURRENT_USER_ALBUMS_PENDING
+  };
+};
+
+const fetchCurrentUserAlbumsFailure = err => {
+  return {
+    type: currentUserConstants.FETCH_CURRENT_USER_ALBUMS_FAILURE,
+    payload: err
+  };
+};
+
+const fetchCurrentUserAlbumsSuccess = currentUserAlbums => {
+  return {
+    type: currentUserConstants.FETCH_CURRENT_USER_ALBUMS_SUCCESS,
+    payload: currentUserAlbums
+  };
+};
+
+export const fetchCurrentUserAlbums = () => dispatch => {
+  dispatch(fetchCurrentUserAlbumsPending());
+  return spotify()
+    .get(process.env.REACT_APP_BASE_URL + "/me/albums")
+    .then(res => {
+      dispatch(fetchCurrentUserAlbumsSuccess(res.data));
+    })
+    .catch(err => {
+      dispatch(fetchCurrentUserAlbumsFailure(err));
+    });
+};

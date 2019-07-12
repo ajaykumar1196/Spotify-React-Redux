@@ -12,7 +12,7 @@ class Categories extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="mediaContainer">
         {this.props.categories ? (
           <MediaObjectsContainer
             heading={"Categories"}
