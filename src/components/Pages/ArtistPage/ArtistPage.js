@@ -1,19 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { fetchArtist } from "../../../actions/artistActions";
+import { fetchArtist, fetchArtistRelatedArtists, fetchArtistTopTracks } from "../../../actions/artistActions";
 import TrackObject from "../../TrackObject/TrackObject";
 import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 
 class ArtistPage extends React.Component {
   componentDidMount() {
     this.props.fetchArtist(this.props.match.params.artistID);
+    this.props.fetchArtistRelatedArtists(this.props.match.params.artistID)
+    this.props.fetchArtistTopTracks(this.props.match.params.artistID)
   }
   componentDidUpdate(prevProps) {
     if (
       prevProps.match.params.artistID !== this.props.match.params.artistID
     ) {
       this.props.fetchArtist(this.props.match.params.artistID);
+      this.props.fetchArtistRelatedArtists(this.props.match.params.artistID)
+      this.props.fetchArtistTopTracks(this.props.match.params.artistID)
     }
   }
 
@@ -21,13 +25,13 @@ class ArtistPage extends React.Component {
     return items.map(item => {
       return (
         <TrackObject
-          key={item.track.id}
-          trackName={item.track.name}
-          trackURL={item.track.preview_url}
-          trackID={item.track.id}
-          trackArtists={item.track.artists}
-          trackAlbum={item.track.album}
-          trackDuration={item.track.duration_ms}
+          key={item.id}
+          trackName={item.name}
+          trackURL={item.preview_url}
+          trackID={item.id}
+          trackArtists={item.artists}
+          trackAlbum={item.album}
+          trackDuration={item.duration_ms}
         />
       );
     });
@@ -38,12 +42,20 @@ class ArtistPage extends React.Component {
       <div className="container">
         <div className="contents">
           <div className="mediaContainer">
-            {this.props.artist && this.props.artistRelatedArtists ? (
-              <MediaObjectsContainer
-                heading={"Related Artists"}
-                items={this.props.artistRelatedArtists.artists}
-                type={"artist"}
-              />
+            {this.props.artist && this.props.artistRelatedArtists && this.props.artistTopTracks ? (
+              <div>
+                <div>
+                  <div>
+                    <h1 className="mediaContainer-heading">Top Tracks</h1>
+                  </div>
+                  {this.renderMediaList(this.props.artistTopTracks.tracks.slice(1, 6))}
+                </div>
+                < MediaObjectsContainer
+                  heading={"Related Artists"}
+                  items={this.props.artistRelatedArtists.artists}
+                  type={"artist"}
+                />
+              </div>
             ) : (
                 "Loading Artist..."
               )}
@@ -57,6 +69,7 @@ const mapStateToProps = state => {
   return {
     artist: state.artist.artist,
     artistRelatedArtists: state.artist.artistRelatedArtists,
+    artistTopTracks: state.artist.artistTopTracks,
     isartistFetching: state.artist.isFetching
   };
 };
@@ -64,6 +77,8 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {
-    fetchArtist
+    fetchArtist,
+    fetchArtistRelatedArtists,
+    fetchArtistTopTracks
   }
 )(withRouter(ArtistPage));

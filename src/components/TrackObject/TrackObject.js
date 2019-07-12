@@ -36,7 +36,7 @@ class TrackObject extends React.Component {
 
   renderArtists = artists => {
     return trackArtists(artists).map((artist, index, artists) => {
-      return (this.props.activeID !== artist.id ?
+      return (
         <span key={artist.id}>
           <Link
             onClick={e => e.stopPropagation()}
@@ -49,10 +49,8 @@ class TrackObject extends React.Component {
 
           {index < artists.length - 1 ? (
             <span className="artists-separator">, </span>
-          ) : (
-              ""
-            )}
-        </span> : ""
+          ) : ""}
+        </span>
 
       );
     });
