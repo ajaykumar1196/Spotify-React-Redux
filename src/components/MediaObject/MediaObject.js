@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import "./MediaObject.css";
 class MediaObject extends React.Component {
   render() {
+    const mediaObjectCoverArtClassName = this.props.type === "artist" ? "media-object-cover-art actionable rounded" : "media-object-cover-art actionable";
     return (
       <div className="media-object">
         <div className="media-object-container" style={{ maxWidth: "200px" }}>
           <div className="media-object-hoverable">
             <div className="media-object-wrapper ">
               <Link
-                className="media-object-cover-art actionable shadow"
+                className={mediaObjectCoverArtClassName}
                 to={this.props.link}
                 style={{ width: "auto", height: "auto" }}
               >

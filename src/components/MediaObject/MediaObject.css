@@ -46,10 +46,10 @@
   right: 35%;
 }
 
-.media-object-cover-art.shadow {
+/* .media-object-cover-art.shadow {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
+} */
 
 .media-object-cover-art .media-object-cover-art-image {
   -webkit-transition-property: opacity;
@@ -78,6 +78,11 @@
   transition-timing-function: cubic-bezier(0.3, 0, 0, 1);
   -webkit-filter: brightness(0.5);
   filter: brightness(0.5);
+}
+
+.media-object-cover-art.rounded {
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .mo-info {
