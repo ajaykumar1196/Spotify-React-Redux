@@ -13,6 +13,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ![Artist Page](/screenshots/artistPage.png)
 
-![Album Page](/screenshots/ablumPage.png)
+![Album Page](/screenshots/albumPage.png)
 
 ![Playlist and Tracks](/screenshots/playlistPage.png)
