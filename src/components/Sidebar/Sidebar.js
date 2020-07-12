@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
-import "circular-std";
+
 import "./Sidebar.css";
 
 import { fetchCurrentUserPlaylists } from "../../actions/currentUserActions";
@@ -45,13 +45,25 @@ class Sidebar extends React.Component {
         <div className="navBar">
           <div className="navBar-header">
             <NavLink to="/" className="logo navbar-logo">
-              <svg viewBox="0 0 1134 340" className="spotify-logo--text">
-                <title>Spotify</title>
-                <path
-                  fill="#fff"
-                  d="M8 171c0 92 76 168 168 168s168-76 168-168S268 4 176 4 8 79 8 171zm230 78c-39-24-89-30-147-17-14 2-16-18-4-20 64-15 118-8 162 19 11 7 0 24-11 18zm17-45c-45-28-114-36-167-20-17 5-23-21-7-25 61-18 136-9 188 23 14 9 0 31-14 22zM80 133c-17 6-28-23-9-30 59-18 159-15 221 22 17 9 1 37-17 27-54-32-144-35-195-19zm379 91c-17 0-33-6-47-20-1 0-1 1-1 1l-16 19c-1 1-1 2 0 3 18 16 40 24 64 24 34 0 55-19 55-47 0-24-15-37-50-46-29-7-34-12-34-22s10-16 23-16 25 5 39 15c0 0 1 1 2 1s1-1 1-1l14-20c1-1 1-1 0-2-16-13-35-20-56-20-31 0-53 19-53 46 0 29 20 38 52 46 28 6 32 12 32 22 0 11-10 17-25 17zm95-77v-13c0-1-1-2-2-2h-26c-1 0-2 1-2 2v147c0 1 1 2 2 2h26c1 0 2-1 2-2v-46c10 11 21 16 36 16 27 0 54-21 54-61s-27-60-54-60c-15 0-26 5-36 17zm30 78c-18 0-31-15-31-35s13-34 31-34 30 14 30 34-12 35-30 35zm68-34c0 34 27 60 62 60s62-27 62-61-26-60-61-60-63 27-63 61zm30-1c0-20 13-34 32-34s33 15 33 35-13 34-32 34-33-15-33-35zm140-58v-29c0-1 0-2-1-2h-26c-1 0-2 1-2 2v29h-13c-1 0-2 1-2 2v22c0 1 1 2 2 2h13v58c0 23 11 35 34 35 9 0 18-2 25-6 1 0 1-1 1-2v-21c0-1 0-2-1-2h-2c-5 3-11 4-16 4-8 0-12-4-12-12v-54h30c1 0 2-1 2-2v-22c0-1-1-2-2-2h-30zm129-3c0-11 4-15 13-15 5 0 10 0 15 2h1s1-1 1-2V93c0-1 0-2-1-2-5-2-12-3-22-3-24 0-36 14-36 39v5h-13c-1 0-2 1-2 2v22c0 1 1 2 2 2h13v89c0 1 1 2 2 2h26c1 0 1-1 1-2v-89h25l37 89c-4 9-8 11-14 11-5 0-10-1-15-4h-1l-1 1-9 19c0 1 0 3 1 3 9 5 17 7 27 7 19 0 30-9 39-33l45-116v-2c0-1-1-1-2-1h-27c-1 0-1 1-1 2l-28 78-30-78c0-1-1-2-2-2h-44v-3zm-83 3c-1 0-2 1-2 2v113c0 1 1 2 2 2h26c1 0 1-1 1-2V134c0-1 0-2-1-2h-26zm-6-33c0 10 9 19 19 19s18-9 18-19-8-18-18-18-19 8-19 18zm245 69c10 0 19-8 19-18s-9-18-19-18-18 8-18 18 8 18 18 18zm0-34c9 0 17 7 17 16s-8 16-17 16-16-7-16-16 7-16 16-16zm4 18c3-1 5-3 5-6 0-4-4-6-8-6h-8v19h4v-6h4l4 6h5zm-3-9c2 0 4 1 4 3s-2 3-4 3h-4v-6h4z"
-                />
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="119.163" height="23.143" viewBox="0 0 109.163 23.143">
+              <g id="Group_4" data-name="Group 4" transform="translate(-7 -4.463)">
+                <g id="Group_3" data-name="Group 3" transform="translate(68.423 5.518)">
+                  <g id="Group_2" data-name="Group 2" transform="translate(38.834 -2.576) rotate(41)">
+                    <path id="Shape" d="M2.63,7.277V1.315a1.315,1.315,0,1,0-2.63,0V7.277a1.315,1.315,0,1,0,2.63,0Z" transform="translate(6.037 0)" fill="#03a5d1"/>
+                    <path id="Shape-2" data-name="Shape" d="M2.034,5.459,6.7,2.417A1.315,1.315,0,0,0,5.26.214L.6,3.257a1.315,1.315,0,0,0,1.437,2.2Z" transform="translate(10.14 9.293)" fill="#00bba2"/>
+                    <path id="Shape-3" data-name="Shape" d="M2.245,3.7,3.7,2.245A1.315,1.315,0,0,0,1.836.385L.385,1.836A1.315,1.315,0,0,0,2.245,3.7Z" transform="translate(11.297 4.117)" fill="#ff6783"/>
+                    <path id="Shape-4" data-name="Shape" d="M1.315,2.63H1.7A1.315,1.315,0,0,0,1.7,0h-.38a1.315,1.315,0,0,0,0,2.63Z" transform="translate(13.051 16.088)" fill="#ffa458"/>
+                    <path id="Shape-5" data-name="Shape" d="M1.315,2.63H1.7A1.315,1.315,0,0,0,1.7,0h-.38a1.315,1.315,0,0,0,0,2.63Z" transform="translate(6.037 10.828)" fill="#c75fff"/>
+                    <path id="Shape-6" data-name="Shape" d="M3.3,2.592,2.523.794A1.315,1.315,0,1,0,.108,1.837l.776,1.8A1.315,1.315,0,1,0,3.3,2.592Z" transform="translate(0 2.015)" fill="#ffa458"/>
+                  </g>
+                  <g id="Group_1" data-name="Group 1" transform="translate(12.181 -0.3)">
+                    <path id="Shape-7" data-name="Shape" d="M0,6.035A3.736,3.736,0,1,1,3.736,9.77,3.74,3.74,0,0,1,0,6.035Zm1.725,0A2.012,2.012,0,1,0,3.736,4.023,2.014,2.014,0,0,0,1.725,6.035Zm12.069-2.3A3.736,3.736,0,1,1,17.53,7.472,3.74,3.74,0,0,1,13.794,3.736Zm1.725,0A2.012,2.012,0,1,0,17.53,1.725,2.014,2.014,0,0,0,15.519,3.736Z" transform="translate(0 11.305)" fill="#fff"/>
+                    <path id="Shape-8" data-name="Shape" d="M1.724,17.34V4.943a1.437,1.437,0,0,1,1.218-1.42l10.534-1.8a.288.288,0,0,1,.317.286V15.041a.862.862,0,0,0,1.724,0V2.012A2.012,2.012,0,0,0,13.2.024L2.667,1.821A3.157,3.157,0,0,0,0,4.943v12.4a.862.862,0,0,0,1.724,0Z" transform="translate(5.748 0)" fill="#fff"/>
+                  </g>
+                </g>
+                <text id="MUSIFY" transform="translate(7 22)" fill="#fff" font-size="18" font-family="Inter-ExtraBold, Inter" font-weight="800"><tspan x="0" y="0">MUSIFY</tspan></text>
+              </g>
+            </svg>
             </NavLink>
           </div>
 
@@ -85,7 +97,7 @@ class Sidebar extends React.Component {
                 </NavLink>
               </div>
             </li>
-            <li className="navBar-group">
+            {/* <li className="navBar-group">
               <div className="navBar-item navBar-item--with-icon-left">
                 <NavLink
                   className="link-subtle navBar-link ellipsis-one-line"
@@ -113,7 +125,7 @@ class Sidebar extends React.Component {
                   </div>
                 </NavLink>
               </div>
-            </li>
+            </li> */}
             <li className="navBar-group">
               <div className="GlueDropTarget">
                 <div className="navBar-item navBar-item--with-icon-left">

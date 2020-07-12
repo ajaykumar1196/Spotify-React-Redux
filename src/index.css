@@ -1,3 +1,5 @@
+@import url('https://rsms.me/inter/inter.css');
+
 * {
   padding: 0px;
   margin: 0px;
@@ -6,6 +8,7 @@
 
 body {
   overscroll-behavior-y: none;
+  font-family: 'Inter', sans-serif;
 }
 
 .container {

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "circular-std";
+
 import "./NavigationBar.css";
 
 class NavigationBar extends React.Component {

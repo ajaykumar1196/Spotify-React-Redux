@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as Icon from "react-feather";
 import { Link } from "react-router-dom";
 
-import "circular-std";
+
 import "./TrackObject.css";
 
 import { playSong } from "../../actions/playerActions";
