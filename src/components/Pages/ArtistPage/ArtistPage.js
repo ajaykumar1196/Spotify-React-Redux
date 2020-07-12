@@ -9,6 +9,9 @@ import { fetchArtist, fetchArtistRelatedArtists, fetchArtistTopTracks } from "..
 import TrackObject from "../../TrackObject/TrackObject";
 import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 
+import EmptyMessage from "../../EmptyMessage/EmptyMessage";
+import Loader from '../../Loader/Loader';
+
 class ArtistPage extends React.Component {
   componentDidMount() {
     this.props.fetchArtist(this.props.match.params.artistID);
@@ -45,7 +48,7 @@ class ArtistPage extends React.Component {
     return (
       <div className="container">
         <div>
-          {this.props.artist && this.props.artistRelatedArtists && this.props.artistTopTracks ? (
+          {this.props.artist && this.props.artistRelatedArtists && this.props.artistTopTracks ? this.props.artistTopTracks.tracks.length ? (
             <div>
 
               <div className="contents">
@@ -99,7 +102,10 @@ class ArtistPage extends React.Component {
               </div>
             </div>
           ) : (
-              "Loading Artist..."
+            <EmptyMessage title="Sorry, no tracks available!" subtitle="Explore other artists."/>
+          ) : (
+            this.props.error ? <EmptyMessage title="404!" subtitle="Can't find the artist."/> 
+            :<Loader/>
             )}
         </div>
       </div>
@@ -111,7 +117,8 @@ const mapStateToProps = state => {
     artist: state.artist.artist,
     artistRelatedArtists: state.artist.artistRelatedArtists,
     artistTopTracks: state.artist.artistTopTracks,
-    isartistFetching: state.artist.isFetching
+    isartistFetching: state.artist.isFetching,
+    error: state.artist.error
   };
 };
 

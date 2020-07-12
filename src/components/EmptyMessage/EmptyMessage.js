@@ -10,7 +10,7 @@ class EmptyMessage extends React.Component {
       <div className="empty-message">
         <h1 className="empty-message__title">{this.props.title}</h1>
         <h4 className="empty-message__subtitle">{this.props.subtitle}</h4>
-        <Link className="btn btn-black cta-button" to="/browse">DISCOVER</Link>
+        <Link className="btn btn-black cta-button" to={this.props.toLink ? this.props.toLink : '/browse'}>Explore</Link>
       </div>
     )
   }

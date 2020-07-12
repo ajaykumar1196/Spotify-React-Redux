@@ -5,6 +5,9 @@ import { fetchFeaturedPlaylists } from "../../../actions/browseActions";
 
 import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 
+import EmptyMessage from "../../EmptyMessage/EmptyMessage";
+import Loader from '../../Loader/Loader';
+
 class FeaturedPlaylists extends React.Component {
   componentDidMount() {
     this.props.fetchFeaturedPlaylists();
@@ -13,14 +16,17 @@ class FeaturedPlaylists extends React.Component {
   render() {
     return (
       <div className="mediaContainer">
-        {this.props.featuredPlaylists ? (
+        {this.props.featuredPlaylists ? this.props.featuredPlaylists.playlists.items.length ?(
           <MediaObjectsContainer
             heading={"Featured Playlists"}
             items={this.props.featuredPlaylists.playlists.items}
             type={"playlist"}
           />
         ) : (
-            "Loading Playlists..."
+          <EmptyMessage title="Sorry, no featured playlist available!" subtitle="Explore other categories."/>
+        ) : (
+          this.props.error ? <EmptyMessage title="404!" subtitle="Can't find the featured playlists."/> 
+          :<Loader/>
           )}
       </div>
     );
@@ -29,7 +35,8 @@ class FeaturedPlaylists extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    featuredPlaylists: state.browse.featuredPlaylists
+    featuredPlaylists: state.browse.featuredPlaylists,
+    error: state.browse.error
   };
 };
 

@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom";
 import { fetchPlaylistTracks } from "../../../actions/playlistActions";
 import TrackObject from "../../TrackObject/TrackObject";
 import MediaOwnerObject from "../../MediaOwnerObject/MediaOwnerObject";
+import EmptyMessage from "../../EmptyMessage/EmptyMessage";
+import Loader from '../../Loader/Loader';
 
 class PlaylistPage extends React.Component {
   componentDidMount() {
@@ -38,7 +40,7 @@ class PlaylistPage extends React.Component {
       <div className="container">
         <div className="contents">
           <div className="mediaContainer">
-            {this.props.playlistTracks ? (
+            {this.props.playlistTracks ? this.props.playlistTracks.tracks.items.length ?(
               <div>
                 <MediaOwnerObject
                   artwork={this.props.playlistTracks.images[0].url}
@@ -50,7 +52,10 @@ class PlaylistPage extends React.Component {
                 {this.renderMediaList(this.props.playlistTracks.tracks.items)}
               </div>
             ) : (
-                "Loading Tracks..."
+              <EmptyMessage title="Sorry, no tracks available!" subtitle="Explore other playlist."/>
+            ) : (
+              this.props.error ? <EmptyMessage title="404!" subtitle="Can't find the playlist."/> 
+              :<Loader/>
               )}
           </div>
         </div>
@@ -61,7 +66,8 @@ class PlaylistPage extends React.Component {
 const mapStateToProps = state => {
   return {
     playlistTracks: state.playlist.playlistTracks,
-    isPlaylistTracksFetching: state.playlist.isFetching
+    isPlaylistTracksFetching: state.playlist.isFetching,
+    error: state.playlist.error
   };
 };
 

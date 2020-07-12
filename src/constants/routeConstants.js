@@ -1,12 +1,13 @@
 export const BROWSE = "/browse";
 export const CATEGORIES = "/browse/categories";
 export const FEATURED_PLAYLISTS = "/browse/featured-playlists";
+export const CATEGORY_PLAYLISTS = "/browse/categories/:categoryID"
 export const NEW_RELEASES = "/browse/new-releases";
 
 export const ALBUM = "/album/:albumID";
 export const ARTIST = "/artist/:artistID";
 export const PLAYLIST = "/playlist/:playlistID";
-export const CATEGORY = "/category/:categoryID";
+// export const CATEGORY = "/category/:categoryID";
 
 export const COLLECTION = "/collection";
 export const USER_RECENTLY_PLAYED = "/collection/recently-played";

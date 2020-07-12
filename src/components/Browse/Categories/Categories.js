@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { fetchCategories } from "../../../actions/browseActions";
 
 import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
+import EmptyMessage from "../../EmptyMessage/EmptyMessage";
+import Loader from '../../Loader/Loader';
 
 class Categories extends React.Component {
   componentDidMount() {
@@ -13,14 +15,18 @@ class Categories extends React.Component {
   render() {
     return (
       <div className="mediaContainer">
-        {this.props.categories ? (
+        {this.props.categories ? 
+        this.props.categories.categories.items.length ? (
           <MediaObjectsContainer
             heading={"Categories"}
             items={this.props.categories.categories.items}
-            type={"categories"}
+            type={"browse/categories"}
           />
+        ): (
+          <EmptyMessage title="Sorry, no categories available!" subtitle="Explore featured playlist."/>
         ) : (
-            "Loading Categories..."
+          this.props.error ? <EmptyMessage title="404!" subtitle="Can't find the categories."/> 
+          :<Loader/>
           )}
       </div>
     );

@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { fetchNewReleases } from "../../../actions/browseActions";
 
 import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
+import EmptyMessage from "../../EmptyMessage/EmptyMessage";
+import Loader from '../../Loader/Loader';
 
 class NewReleases extends React.Component {
   componentDidMount() {
@@ -13,14 +15,17 @@ class NewReleases extends React.Component {
   render() {
     return (
       <div className="mediaContainer">
-        {this.props.newReleasesAlbums ? (
+        {this.props.newReleasesAlbums ? this.props.newReleasesAlbums.albums.items.length ? (
           <MediaObjectsContainer
             heading={"New Releases"}
             items={this.props.newReleasesAlbums.albums.items}
             type={"album"}
           />
         ) : (
-            "Loading Albums..."
+          <EmptyMessage title="Sorry, no new release playlists available!" subtitle="Explore other categories."/>
+        ) : (
+          this.props.error ? <EmptyMessage title="404!" subtitle="Can't find the playlists."/> 
+          :<Loader/>
           )}
       </div>
     );

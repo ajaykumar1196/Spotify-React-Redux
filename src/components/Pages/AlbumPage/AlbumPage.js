@@ -6,6 +6,9 @@ import { fetchAlbumTracks } from "../../../actions/albumActions";
 import TrackObject from "../../TrackObject/TrackObject";
 import MediaOwnerObject from "../../MediaOwnerObject/MediaOwnerObject";
 
+import EmptyMessage from "../../EmptyMessage/EmptyMessage";
+import Loader from '../../Loader/Loader';
+
 class AlbumPage extends React.Component {
   componentDidMount() {
     this.props.fetchAlbumTracks(this.props.match.params.albumID);
@@ -38,7 +41,7 @@ class AlbumPage extends React.Component {
       <div className="container">
         <div className="contents">
           <div className="mediaContainer">
-            {this.props.albumTracks ? (
+            {this.props.albumTracks ? this.props.albumTracks.tracks.items.length ? (
               <div>
                 <MediaOwnerObject
                   artwork={this.props.albumTracks.images[0].url}
@@ -52,8 +55,11 @@ class AlbumPage extends React.Component {
                   this.props.albumTracks
                 )}
               </div>
+            )  : (
+              <EmptyMessage title="Sorry, no tracks available!" subtitle="Explore other albums."/>
             ) : (
-                "Loading Tracks..."
+              this.props.error ? <EmptyMessage title="404!" subtitle="Can't find the album."/> 
+              :<Loader/>
               )}
           </div>
         </div>
@@ -64,7 +70,8 @@ class AlbumPage extends React.Component {
 const mapStateToProps = state => {
   return {
     albumTracks: state.album.albumTracks,
-    isAlbumTracksFetching: state.album.isFetching
+    isAlbumTracksFetching: state.album.isFetching,
+    error: state.album.error
   };
 };
 

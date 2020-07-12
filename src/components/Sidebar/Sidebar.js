@@ -61,7 +61,7 @@ class Sidebar extends React.Component {
                     <path id="Shape-8" data-name="Shape" d="M1.724,17.34V4.943a1.437,1.437,0,0,1,1.218-1.42l10.534-1.8a.288.288,0,0,1,.317.286V15.041a.862.862,0,0,0,1.724,0V2.012A2.012,2.012,0,0,0,13.2.024L2.667,1.821A3.157,3.157,0,0,0,0,4.943v12.4a.862.862,0,0,0,1.724,0Z" transform="translate(5.748 0)" fill="#fff"/>
                   </g>
                 </g>
-                <text id="MUSIFY" transform="translate(7 22)" fill="#fff" font-size="18" font-family="Inter-ExtraBold, Inter" font-weight="800"><tspan x="0" y="0">MUSIFY</tspan></text>
+                <text id="MUSIFY" transform="translate(7 22)" fill="#fff" fontSize="18" fontFamily="Inter-ExtraBold, Inter" fontWeight="800"><tspan x="0" y="0">MUSIFY</tspan></text>
               </g>
             </svg>
             </NavLink>

@@ -8,6 +8,7 @@ import NavigationBar from "../NavigationBar/NavigationBar";
 import NewReleases from "./NewReleases/NewReleases";
 import FeaturedPlaylists from "./FeaturedPlaylists/FeaturedPlaylists";
 import Categories from "./Categories/Categories";
+import CategoryPlaylists from "./CategoryPlaylists/CategoryPlaylists";
 
 class Browse extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class Browse extends React.Component {
         <NavigationBar links={navBarBrowseItems} />
         <Switch>
           <Route path={RouteConstant.NEW_RELEASES} component={NewReleases} />
+          <Route path={RouteConstant.CATEGORY_PLAYLISTS} component={CategoryPlaylists} />
           <Route path={RouteConstant.CATEGORIES} component={Categories} />
           <Route
             path={RouteConstant.FEATURED_PLAYLISTS}

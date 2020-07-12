@@ -96,3 +96,35 @@ export const fetchFeaturedPlaylists = () => dispatch => {
       dispatch(fetchFeaturedPlaylistsFailure(err));
     });
 };
+
+const fetchCategoryPlaylistsPending = () => {
+  return {
+    type: browseConstants.FETCH_CATEGORY_PLAYLISTS_PENDING
+  };
+};
+
+const fetchCategoryPlaylistsFailure = err => {
+  return {
+    type: browseConstants.FETCH_CATEGORY_PLAYLISTS_FAILURE,
+    payload: err
+  };
+};
+
+const fetchCategoryPlaylistsSuccess = categoryPlaylists => {
+  return {
+    type: browseConstants.FETCH_CATEGORY_PLAYLISTS_SUCCESS,
+    payload: categoryPlaylists
+  };
+};
+
+export const fetchCategoryPlaylists = (categoryId) => dispatch => {
+  dispatch(fetchCategoryPlaylistsPending());
+  return spotify()
+    .get(process.env.REACT_APP_BASE_URL + `/browse/categories/${categoryId}/playlists`)
+    .then(res => {
+      dispatch(fetchCategoryPlaylistsSuccess(res.data));
+    })
+    .catch(err => {
+      dispatch(fetchCategoryPlaylistsFailure(err));
+    });
+};
