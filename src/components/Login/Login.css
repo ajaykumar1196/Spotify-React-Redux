@@ -1,0 +1,29 @@
+.wrapper{
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.center-login{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.btn-login{
+    background: #08cc39;
+  color: #ffffff;
+  padding: 11px 44px;
+  font-weight: 400;
+  text-decoration: none;
+
+}
+
+.btn-login:hover{
+    text-decoration: none;
+}
+
+.cta-button {
+    margin-top: 136px;
+  }
