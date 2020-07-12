@@ -5,6 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 import "./Sidebar.css";
 
 import { fetchCurrentUserPlaylists } from "../../actions/currentUserActions";
+import Logout from "../Logout/Logout";
 
 class Sidebar extends React.Component {
   componentDidMount() {
@@ -168,7 +169,12 @@ class Sidebar extends React.Component {
                   )
                 : ""}
             </ul>
+
+            <div className="navBar-group">
+             <Logout/>
+            </div>
           </div>
+          
         </div>
       </div>
     );

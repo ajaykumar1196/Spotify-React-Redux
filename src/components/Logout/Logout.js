@@ -1,17 +1,17 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
-
+import {  withRouter } from "react-router-dom";
+import './Logout.css';
 import AuthService from "../../services/authService";
 
 class Logout extends React.Component {
-  componentDidMount() {
-    console.log("Logout");
+  handleClick = () => {
     AuthService.logout();
+    this.props.history.push("/");
   }
 
   render() {
-    return <Redirect to="/" />;
+    return <button className="btn btn-logout cta-button" onClick={this.handleClick}>Logout</button>;
   }
 }
 
-export default Logout;
+export default withRouter(Logout);

@@ -5,6 +5,7 @@ import { fetchCurrentUserPlaylists } from "../../../actions/currentUserActions";
 
 import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 import EmptyMessage from "../../EmptyMessage/EmptyMessage";
+import Loader from '../../Loader/Loader';
 
 class UserPlaylists extends React.Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class UserPlaylists extends React.Component {
               type={"playlist"}
             />
           ) : <EmptyMessage title="Like your favourite artists" subtitle="Follow artists you love to listen." /> : (
-            "Loading Playlists..."
+            <Loader/>
           )}
       </div>
     );

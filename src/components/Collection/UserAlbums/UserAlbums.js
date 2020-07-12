@@ -5,6 +5,7 @@ import { fetchCurrentUserAlbums } from "../../../actions/currentUserActions";
 
 import MediaObjectsContainer from "../../MediaObjectsContainer/MediaObjectsContainer";
 import EmptyMessage from "../../EmptyMessage/EmptyMessage";
+import Loader from '../../Loader/Loader';
 
 class UserAlbums extends React.Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class UserAlbums extends React.Component {
                 type={"album"}
               />
             ) : <EmptyMessage title="Save your favourite albums" subtitle="Save albums you love to build the collection of your dreams." /> : (
-            "Loading Albums..."
+              <Loader/>
           )}
       </div>
     );

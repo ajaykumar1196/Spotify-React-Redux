@@ -1,0 +1,18 @@
+.btn-logout{
+  background: #08cc39;
+  color: #ffffff;
+  padding: 11px 44px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 24px;
+  outline: none;
+}
+
+.btn-logout:hover{
+  background: #05b331;
+}
+
+.cta-button {
+    margin-top: 136px;
+  }
